@@ -14,6 +14,11 @@
 
   <ItemGroup>
     <ProjectReference Include="..\plist-cil\plist-cil.csproj" />
+    <Compile Include="NSArrayTests.cs" />
+    <Compile Include="NSDateTests.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ParseTest.cs" />
+    <Compile Include="IssueTest.cs" />
   </ItemGroup>
 
   <ItemGroup>
