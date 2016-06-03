@@ -142,7 +142,7 @@ namespace plistcil.test
         [Test]
         public static void RoundtripTest()
         {
-            var expected = File.ReadAllText(@"test-files\Roundtrip.plist");
+            var expected = File.ReadAllText(@"test-files\Roundtrip.plist").Replace("\r\n", "\n");
             var value = XmlPropertyListParser.Parse(new FileInfo(@"test-files\Roundtrip.plist"));
             var actual = value.ToXmlPropertyList();
 
