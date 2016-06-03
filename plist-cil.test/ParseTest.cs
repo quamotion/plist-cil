@@ -36,7 +36,6 @@ namespace plistcil.test
         /**
      * Test the xml reader/writer
      */
-        [Test]
         public static void TestXml()
         {
             // Parse an example plist file
