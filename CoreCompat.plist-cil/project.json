@@ -1,0 +1,54 @@
+{
+  "version": "1.0.0-*",
+
+  "authors": [ "claunia" ],
+  "title": "plist-cil (Apple Property List support) for .NET Core",
+  "description": "MIT licensed C#/.NET parser and writer for Apple and GnuStep Property Lists, supporting ASCII, Binary and Xml formats, based on Java's dd-plist.",
+
+  "packOptions": {
+    "licenseUrl": "https://raw.githubusercontent.com/claunia/plist-cil/master/LICENSE",
+    "owners": [ "quamotion" ],
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/quamotion/plist-cil"
+    }
+  },
+
+  "buildOptions": {
+    "define": [ "NETCORE" ],
+    "keyFile": "../plist-cil/plist-cil.snk",
+    "strongName": true,
+    "compile": {
+      "include": [
+        "../plist-cil/**/*.cs"
+      ],
+      "exclude": [
+        "../plist-cil/Properties/*.cs",
+        "../plist-cil/bin/**/*.cs",
+        "../plist-cil/obj/**/*.cs"
+      ]
+    }
+  },
+
+  "frameworks": {
+    "netstandard1.5": {
+      "dependencies": {
+        "NETStandard.Library": "1.5.0-rc3-24117-00",
+        "System.Xml.XmlDocument": "4.0.1-rc2-24027",
+        "System.Reflection.TypeExtensions": "4.1.0-rc2-24027"
+      }
+    },
+    "net40": {
+      "frameworkAssemblies": {
+        "System.Xml": "4.0.0.0",
+        "System.Numerics":  "4.0.0.0"
+      }
+    },
+    "net45": {
+      "frameworkAssemblies": {
+        "System.Xml": "4.0.0.0",
+        "System.Numerics": "4.0.0.0"
+      }
+    }
+  }
+}

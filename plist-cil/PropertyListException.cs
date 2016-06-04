@@ -31,7 +31,9 @@ namespace Claunia.PropertyList
     /// <summary>
     /// The exception that is thrown when an property list file could not be processed correctly.
     /// </summary>
+#if !NETCORE
     [Serializable]
+#endif
     public class PropertyListException : Exception
     {
         /// <summary>
