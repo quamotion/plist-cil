@@ -378,7 +378,9 @@ namespace Claunia.PropertyList
                     }
                 default:
                     {
+#if !NETCORE
                         Console.WriteLine("WARNING: The given binary property list contains an object of unknown type (" + objType + ")");
+#endif
                         break;
                     }
             }
@@ -401,7 +403,9 @@ namespace Claunia.PropertyList
                 int intType = (int_type & 0xF0) >> 4;
                 if (intType != 0x1)
                 {
+#if !NETCORE
                     Console.WriteLine("BinaryPropertyListParser: Length integer has an unexpected type" + intType + ". Attempting to parse anyway...");
+#endif
                 }
                 int intInfo = int_type & 0x0F;
                 int intLength = (int)Math.Pow(2, intInfo);
