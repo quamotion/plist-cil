@@ -1,4 +1,7 @@
 #plist-cil
+
+[![Build status](https://ci.appveyor.com/api/projects/status/faf3y0u7vwk8f3kv?svg=true)](https://ci.appveyor.com/project/qmfrederik/plist-cil)
+
 This library enables .NET (CLR) applications to work with property lists in various formats.
 It is mostly based on [dd-plist for Java](https://code.google.com/p/plist/).
 
