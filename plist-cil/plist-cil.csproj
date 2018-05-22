@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFrameworks>netcoreapp1.0;netstandard1.3;netstandard1.4;netstandard1.6;netcoreapp2.0;netstandard2.0;netcoreapp2.1</TargetFrameworks>
-    <Version>1.16</Version>
+    <Version>1.17-beta003</Version>
     <Authors>Natalia Portillo</Authors>
     <Company>Claunia.com</Company>
     <Description>MIT licensed C#/.NET parser and writer for Apple and GnuStep Property Lists, supporting ASCII, Binary and Xml formats, based on Java's dd-plist.</Description>
@@ -26,6 +26,7 @@
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
     <LangVersion>latest</LangVersion>
+    <PackageId>CoreCompat.plist-cil</PackageId>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(OS)' == 'Windows_NT'">
@@ -45,7 +46,7 @@
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(TargetFramework)' == 'netcoreapp2.1'">
-    <DefineConstants>$(DefineConstants);NATIVE_SPAN</DefineConstants>
+    <DefineConstants>$(DefineConstants);NATIVE_SPAN;HAS_HASHCODE</DefineConstants>
   </PropertyGroup>
 
   <ItemGroup Condition="'$(TargetFramework)' == 'net45'">

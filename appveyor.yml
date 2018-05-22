@@ -9,5 +9,5 @@ on_success:
   - cmd: dotnet pack plist-cil\plist-cil.csproj -c Release --version-suffix r%APPVEYOR_BUILD_NUMBER%
 
 artifacts:
-  - path: "plist-cil\\bin\\Release\\plist-cil.*.nupkg"
+  - path: "plist-cil\\bin\\Release\\*.nupkg"
   - path: "plist-cil.benchmark\\BenchmarkDotNet.Artifacts\\results\\*.*"
