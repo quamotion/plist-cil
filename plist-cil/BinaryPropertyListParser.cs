@@ -25,6 +25,7 @@
 
 using System;
 using System.Buffers.Binary;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Numerics;
@@ -324,7 +325,23 @@ namespace Claunia.PropertyList
                 {
                     //UID (v1.0 and later)
                     int length = objInfo + 1;
-                    return new UID(bytes.Slice(offset + 1, length));
+
+                    var value = (ulong)BinaryPropertyListParser.ParseLong(bytes.Slice(offset + 1, length));
+
+                    if (value < UidCacheSize)
+                    {
+                        var intValue = (int)value;
+                        if(!uidCache.ContainsKey(intValue))
+                        {
+                            uidCache.Add(intValue, new UID(value));
+                        }
+
+                        return uidCache[intValue];
+                    }
+                    else
+                    {
+                        return new UID(value);
+                    }
                 }
                 case 0xA:
                 {
@@ -601,5 +618,11 @@ namespace Claunia.PropertyList
 
             return src.Slice(startIndex, endIndex - startIndex).ToArray();
         }
+
+        public static ulong UidCacheSize { get; set; } = 1024;
+
+        private static Dictionary<int, UID> uidCache = new Dictionary<int, UID>();
+
+        public static IReadOnlyDictionary<int, UID> UidCache { get { return uidCache; } }
     }
 }
